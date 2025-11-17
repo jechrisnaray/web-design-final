@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HarmonyStream - Playlist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-music"></i>
+            Harmony<span>Stream</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="beranda.html">Beranda</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="playlist.html" class="active">Playlist</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <!-- KOMPONEN INPUT -->
+                <input type="text" placeholder="Cari di playlist..." id="search-input">
+            </div>
+            <div class="user-profile" id="user-profile-btn">
+                <img src="profile.jpg" alt="User">
+                <span>Jei</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-item">
+                    <i class="fas fa-home"></i>
+                    <a href="beranda.html" style="text-decoration: none; color: inherit;"><span>Beranda</span></a>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-book"></i>
+                    <a href="library.html" style="text-decoration: none; color: inherit;"><span>Your Library</span></a>
+                </div>
+                <div class="sidebar-item active">
+                    <i class="fas fa-music"></i>
+                    <span>Playlist</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-item">
+                    <i class="fas fa-heart"></i>
+                    <a href="liked_songs.html" style="text-decoration: none; color: inherit;"><span>Liked Songs</span></a>
+                </div>
+            </div>
+
+            <!-- KOMPONEN FIELDSET -->
+            <fieldset class="playlist-stats-fieldset">
+                <!-- KOMPONEN LEGEND -->
+                <legend>Statistik Playlist</legend>
+                <div class="fieldset-content">
+                    <div class="stat-item">
+                        <!-- KOMPONEN LABEL -->
+                        <label>Total Lagu:</label>
+                        <!-- KOMPONEN OUTPUT -->
+                        <output id="total-songs-output">10</output>
+                    </div>
+                    <div class="stat-item">
+                        <label>Total Durasi:</label>
+                        <output id="total-duration-output">39 min</output>
+                    </div>
+                    <div class="stat-item">
+                        <label>Ukuran Playlist:</label>
+                        <!-- KOMPONEN METER -->
+                        <meter id="playlist-size-meter" value="0.6" min="0" max="1">60%</meter>
+                        <output id="playlist-size-output">60%</output>
+                    </div>
+                </div>
+            </fieldset>
+        </aside>
+
+        <main class="main-content">
+            <div class="playlist-header">
+                <img src="images/Apocalypse.jpg.jpeg" alt="Playlist" class="playlist-cover">
+                <div class="playlist-info">
+                    <p class="playlist-type">PUBLIC PLAYLIST</p>
+                    <h1 class="page-title">My Favorite Mix</h1>
+                    
+                    <div class="playlist-description-container">
+                        <!-- KOMPONEN TEXTAREA -->
+                        <textarea id="playlist-description" class="playlist-description" placeholder="Tambahkan deskripsi playlist...">Koleksi personal lagu-lagu favorit</textarea>
+                    </div>
+                    
+                    <div class="playlist-stats">
+                        <span class="playlist-creator">User</span>
+                        <span class="playlist-dot">•</span>
+                        <span class="playlist-songs">10 songs</span>
+                        <span class="playlist-dot">•</span>
+                        <span class="playlist-duration">sekitar 39 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="playlist-actions">
+                <!-- KOMPONEN BUTTON -->
+                <button class="play-btn" id="play-all-btn"><i class="fas fa-play"></i> Play</button>
+                <button class="action-btn" title="Tambah lagu" id="add-songs-btn"><i class="fas fa-plus"></i></button>
+                <button class="action-btn" title="Sukai playlist" id="like-playlist-btn"><i class="far fa-heart"></i></button>
+                <div class="dropdown">
+                    <button class="action-btn" title="Menu lainnya"><i class="fas fa-ellipsis-h"></i></button>
+                    <div class="dropdown-content">
+                        <a href="#" id="share-playlist"><i class="fas fa-share"></i> Bagikan</a>
+                        <a href="#" id="export-playlist"><i class="fas fa-download"></i> Ekspor</a>
+                        <a href="#" id="rename-playlist"><i class="fas fa-edit"></i> Ganti Nama</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <!-- KOMPONEN TABEL -->
+                <table class="playlist-tracks-table">
+                    <thead>
+                        <tr>
+                            <th class="track-number">#</th>
+                            <th class="track-title">Title</th>
+                            <th class="track-album">Album</th>
+                            <th class="track-date">Date Added</th>
+                            <th class="track-actions">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="playlist-tracks-body">
+                      
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5" class="table-summary">
+                                <output id="table-summary-output">Menampilkan 10 lagu • Total durasi: 39 menit</output>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <!-- KOMPONEN FIELDSET -->
+            <fieldset class="playlist-settings">
+                <!-- KOMPONEN LEGEND -->
+                <legend>Pengaturan Playlist</legend>
+                <div class="settings-grid">
+                    <div class="setting-group">
+                        <label for="playlist-visibility">Visibilitas:</label>
+                        <!-- KOMPONEN SELECT -->
+                        <select id="playlist-visibility">
+                            <!-- KOMPONENT OPTGROUP -->
+                            <optgroup label="Tipe Visibilitas">
+                                <!-- KOMPONEN OPTION -->
+                                <option value="public">Publik</option>
+                                <option value="private" selected>Privat</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <!-- KOMPONEN LABEL -->
+                        <label for="playlist-collaborative" class="checkbox-label">
+                            <!-- KOMPONEN CHECK BOX -->
+                            <input type="checkbox" id="playlist-collaborative" name="playlist-collaborative">
+                            <span class="checkmark"></span>
+                            Kolaboratif
+                        </label>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label>Urutan Pemutaran:</label>
+                        <div class="radio-group">
+                            <!-- KOMPONEN RADIO BUTTON -->
+                            <label class="radio-label">
+                                <input type="radio" id="order-sequential" name="playback-order" value="sequential" checked>
+                                <span class="radiomark"></span>
+                                Berurutan
+                            </label>
+                            
+                            <label class="radio-label">
+                                <input type="radio" id="order-shuffle" name="playback-order" value="shuffle">
+                                <span class="radiomark"></span>
+                                Acak
+                            </label>
+                            
+                            <label class="radio-label">
+                                <input type="radio" id="order-random" name="playback-order" value="random">
+                                <span class="radiomark"></span>
+                                Random
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="volume-control">Volume:</label>
+                        <div class="volume-control-container">
+                            <i class="fas fa-volume-down volume-icon"></i>
+                            <!-- KOMPONEN INPUT -->
+                            <input type="range" id="volume-control" name="volume-control" min="0" max="100" value="50">
+                            <i class="fas fa-volume-up volume-icon"></i>
+                            <output id="volume-value">50%</output>
+                        </div>
+                    </div>
+
+                    <!-- DATALIST COMPONENT -->
+                    <div class="setting-group">
+                        <div class="datalist-container">
+                            <label for="genre-suggestions">Cari Genre Musik:</label>
+                            <!-- KOMPONEN INPUT -->
+                            <input class="datalist-input" list="genre-options" id="genre-suggestions" name="genre-suggestions" placeholder="Ketik atau pilih genre...">
+                            <!-- KOMPONENT DATALIST -->
+                            <datalist id="genre-options">
+                                <!-- KOMPONEN OPTION -->
+                                <option value="Pop">
+                                <option value="Rock">
+                                <option value="Jazz">
+                                <option value="Classical">
+                                <option value="Hip Hop">
+                                <option value="R&B">
+                                <option value="Electronic">
+                                <option value="Country">
+                                <option value="Reggae">
+                                <option value="Blues">
+                                <option value="Metal">
+                                <option value="Folk">
+                                <option value="Indie">
+                                <option value="K-Pop">
+                                <option value="Latin">
+                            </datalist>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </main>
+    </div>
+
+    
+    <div id="add-songs-modal" class="add-songs-modal">
+        <div class="add-songs-modal-content">
+            <div class="add-songs-modal-header">
+                <h2>Tambah Lagu ke Playlist</h2>
+                <button class="close-add-songs-modal" id="close-add-songs-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="add-songs-modal-body">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Cari lagu..." id="modal-search-input">
+                </div>
+                <div class="available-songs-list" id="available-songs-list">
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+    <div id="profile-modal" class="profile-modal">
+        <div class="profile-modal-content">
+            <div class="profile-sidebar">
+                <button class="profile-close" id="profile-close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <img src="profile.jpg" alt="User Profile" class="profile-image-large">
+                <h1 class="profile-name">Jei</h1>
+                <p class="profile-bio">Music Enthusiast & Web Developer</p>
+            </div>
+            
+            <div class="profile-main">
+                <div class="profile-section">
+                    <h2 class="profile-section-title">
+                        <i class="fas fa-heart"></i>
+                        Hobi
+                    </h2>
+                    <div class="profile-hobbies">
+                        <span class="hobby-tag">Gaming</span>
+                        <span class="hobby-tag">Music</span>
+                        <span class="hobby-tag">Sleep</span>
+                        <span class="hobby-tag">Coding</span>
+                        <span class="hobby-tag">Movies</span>
+                    </div>
+                </div>
+                
+                <div class="profile-section">
+                    <h2 class="profile-section-title">
+                        <i class="fas fa-music"></i>
+                        Genre Favorit
+                    </h2>
+                    <div class="profile-hobbies">
+                        <span class="hobby-tag">Pop</span>
+                        <span class="hobby-tag">Rock</span>
+                        <span class="hobby-tag">Indie</span>
+                        <span class="hobby-tag">R&B</span>
+                        <span class="hobby-tag">Jazz</span>
+                        <span class="hobby-tag">Electronic</span>
+                    </div>
+                </div>
+                
+                <div class="profile-section">
+                    <h2 class="profile-section-title">
+                        <i class="fas fa-info-circle"></i>
+                        Informasi Pengguna
+                    </h2>
+                    <div class="profile-hobbies">
+                        <span class="hobby-tag">Anggota sejak: 2023</span>
+                        <span class="hobby-tag">Tingkat: Premium</span>
+                        <span class="hobby-tag">Lokasi: Indonesia</span>
+                        <span class="hobby-tag">Bahasa: Indonesia & English</span>
+                    </div>
+                </div>
+                
+                <div class="profile-section">
+                    <h2 class="profile-section-title">
+                        <i class="fas fa-star"></i>
+                        Artist Favorit
+                    </h2>
+                    <div class="profile-hobbies">
+                        <span class="hobby-tag">Cigarettes After Sex</span>
+                        <span class="hobby-tag">Niki</span>
+                        <span class="hobby-tag">My Chemical Romance</span>
+                        <span class="hobby-tag">The Script</span>
+                        <span class="hobby-tag">Phil Collins</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="player-controls">
+        <div class="now-playing">
+            <img src="images/Apocalypse.jpg.jpeg" alt="Now Playing" id="current-cover">
+            <div class="track-info">
+                <div class="track-title" id="current-title">Pilih Lagu</div>
+                <div class="track-artist" id="current-artist">HarmonyStream</div>
+            </div>
+            <button class="like-btn" id="like-btn"><i class="far fa-heart"></i></button>
+        </div>
+        
+        <div class="playback-controls">
+            <button id="shuffle-btn"><i class="fas fa-random"></i></button>
+            <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
+            <button class="play-pause" id="play-pause-btn"><i class="fas fa-play"></i></button>
+            <button id="next-btn"><i class="fas fa-step-forward"></i></button>
+            <button id="repeat-btn"><i class="fas fa-redo"></i></button>
+        </div>
+        
+        <div class="playback-progress">
+            <span id="current-time">0:00</span>
+            <!-- KOMPONEN PROGRESS -->
+            <progress value="0" max="100" id="progress-bar"></progress>
+            <span id="duration">0:00</span>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sidebarItems = document.querySelectorAll('.sidebar-item');
+        sidebarItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const text = this.querySelector('span').textContent.trim();
+                
+                sidebarItems.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                
+                switch(text) {
+                    case 'Beranda':
+                        window.location.href = 'beranda.html';
+                        break;
+                    case 'Search':
+                        document.querySelector('.search-bar input').focus();
+                        break;
+                    case 'Your Library':
+                        window.location.href = 'library.html';
+                        break;
+                    case 'Playlist':
+                        window.location.href = 'playlist.html';
+                        break;
+                    case 'Liked Songs':
+                        window.location.href = 'liked_songs.html';
+                        break;
+                }
+            });
+        });
+    });
+</script>
+
+    <script src="main.js"></script>
+
+
+    <script>
+        
+        const availableTracks = [
+            { id: 1, title: "Apocalypse", artist: "Cigarettes After Sex", album: "Apocalypse", duration: "4:52", cover: "images/Apocalypse.jpg.jpeg", audio: "audio/Apocalypse.mp3" },
+            { id: 2, title: "drunk text", artist: "Henry Moodie", album: "drunk text", duration: "3:34", cover: "images/drunk text.jpg.jpeg", audio: "audio/drunk text.mp3" },
+            { id: 3, title: "Helena", artist: "My Chemical Romance", album: "Helena", duration: "3:27", cover: "images/Helena.jpg.jpeg", audio: "audio/Helena.mp3" },
+            { id: 4, title: "KOMANG", artist: "Raim Laode", album: "KOMANG", duration: "4:08", cover: "images/Komang.jpg.jpeg", audio: "audio/KOMANG.mp3" },
+            { id: 5, title: "Backburner", artist: "Niki", album: "Backburner", duration: "3:45", cover: "images/Niki (Backburner).jpg.jpeg", audio: "audio/Niki (Backburner).mp3" },
+            { id: 6, title: "sea of hope", artist: "Mitsune", album: "sea of hope", duration: "3:22", cover: "images/sea of hope.jpg.jpeg", audio: "audio/sea of hope.mp3" },
+            { id: 7, title: "blue", artist: "Yung kai", album: "blue", duration: "3:26", cover: "images/Yung kai (blue).jpg.jpeg", audio: "audio/Yung kai (blue).mp3" },
+            { id: 8, title: "The Man Who Can't Be Moved", artist: "The Script", album: "The Man Who Can't Be Moved", duration: "4:02", cover: "images/The Man Who Can't Be Moved.jpg.jpeg", audio: "audio/The Man Who Can't Be Moved.mp3" },
+            { id: 9, title: "Bersamamu", artist: "Vierra", album: "Bersamamu", duration: "4:15", cover: "images/Vierra (Bersamamu).jpg.jpeg", audio: "audio/Vierra (Bersamamu).mp3" },
+            { id: 10, title: "You'll Be in My Heart", artist: "Phil Collins", album: "You'll Be in My Heart", duration: "4:19", cover: "images/You'll Be in My Heart.jpg.jpeg", audio: "audio/You'll Be in My Heart.mp3" },
+            { id: 11, title: "Teenage Dream", artist: "Stephen Dawes", album: "Teenage Dream", duration: "3:58", cover: "images/Teenage Dream.jpg.jpeg", audio: "audio/Teenage Dream.mp3" }
+        ];
+
+        // Data playlist (disimpan di localStorage)
+        let playlists = JSON.parse(localStorage.getItem('harmonystream-playlists')) || {
+            'My Favorite Mix': {
+                id: 1,
+                name: 'My Favorite Mix',
+                description: 'Koleksi personal lagu-lagu favorit',
+                cover: 'images/Apocalypse.jpg.jpeg',
+                tracks: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                created: new Date().toISOString(),
+                public: false,
+                collaborative: false
+            }
+        };
+
+        let currentPlaylist = 'My Favorite Mix';
+        let currentTrackIndex = 0;
+        let isPlaying = false;
+        let audioPlayer = new Audio();
+        let likedTracks = JSON.parse(localStorage.getItem('harmonystream-liked-tracks')) || [];
+        let isShuffled = false;
+        let isRepeating = false;
+
+       
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePage();
+            setupEventListeners();
+            loadPlaylistTracks();
+            updatePlaylistStats();
+            updateLikeButtons();
+        });
+
+        function initializePage() {
+            
+            const savedPlaylists = JSON.parse(localStorage.getItem('harmonystream-playlists'));
+            if (savedPlaylists) {
+                playlists = savedPlaylists;
+            }
+            
+            
+            const savedLikedTracks = JSON.parse(localStorage.getItem('harmonystream-liked-tracks'));
+            if (savedLikedTracks) {
+                likedTracks = savedLikedTracks;
+            }
+            
+            
+            updatePlaylistUI();
+        }
+
+        function setupEventListeners() {
+            
+            const profileBtn = document.getElementById('user-profile-btn');
+            const profileModal = document.getElementById('profile-modal');
+            const profileClose = document.getElementById('profile-close');
+
+            profileBtn.addEventListener('click', function() {
+                profileModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+
+            profileClose.addEventListener('click', function() {
+                profileModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            profileModal.addEventListener('click', function(event) {
+                if (event.target === profileModal) {
+                    profileModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const text = this.querySelector('span').textContent.trim();
+                    
+                    sidebarItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    switch(text) {
+                        case 'Beranda':
+                            window.location.href = 'beranda.html';
+                            break;
+                        case 'Search':
+                            document.querySelector('.search-bar input').focus();
+                            break;
+                        case 'Your Library':
+                            window.location.href = 'library.html';
+                            break;
+                        case 'Playlist':
+                            window.location.href = 'playlist.html';
+                            break;
+                        case 'Liked Songs':
+                            window.location.href = 'liked_songs.html';
+                            break;
+                    }
+                });
+            });
+
+            
+            const volumeControl = document.getElementById('volume-control');
+            const volumeValue = document.getElementById('volume-value');
+            
+            volumeControl.addEventListener('input', function() {
+                volumeValue.textContent = this.value + '%';
+                audioPlayer.volume = this.value / 100;
+            });
+
+           
+            const playAllBtn = document.getElementById('play-all-btn');
+            playAllBtn.addEventListener('click', function() {
+                playAllTracks();
+            });
+
+            
+            const addSongsBtn = document.getElementById('add-songs-btn');
+            const addSongsModal = document.getElementById('add-songs-modal');
+            const closeAddSongsModal = document.getElementById('close-add-songs-modal');
+
+            addSongsBtn.addEventListener('click', function() {
+                openAddSongsModal();
+            });
+
+            closeAddSongsModal.addEventListener('click', function() {
+                addSongsModal.style.display = 'none';
+            });
+
+            addSongsModal.addEventListener('click', function(event) {
+                if (event.target === addSongsModal) {
+                    addSongsModal.style.display = 'none';
+                }
+            });
+
+           
+            const searchInput = document.getElementById('search-input');
+            searchInput.addEventListener('input', function(e) {
+                filterTracks(e.target.value);
+            });
+
+            const modalSearchInput = document.getElementById('modal-search-input');
+            modalSearchInput.addEventListener('input', function(e) {
+                filterAvailableSongs(e.target.value);
+            });
+
+           
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            playPauseBtn.addEventListener('click', function() {
+                togglePlayPause();
+            });
+
+            
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.addEventListener('click', function() {
+                playNextTrack();
+            });
+
+            
+            const prevBtn = document.getElementById('prev-btn');
+            prevBtn.addEventListener('click', function() {
+                playPreviousTrack();
+            });
+
+            
+            const likeBtn = document.getElementById('like-btn');
+            likeBtn.addEventListener('click', function() {
+                toggleLikeCurrentTrack();
+            });
+
+            
+            const shuffleBtn = document.getElementById('shuffle-btn');
+            shuffleBtn.addEventListener('click', function() {
+                toggleShuffle();
+            });
+
+           
+            const repeatBtn = document.getElementById('repeat-btn');
+            repeatBtn.addEventListener('click', function() {
+                toggleRepeat();
+            });
+
+            
+            const dropdownBtn = document.querySelector('.dropdown .action-btn');
+            const dropdownContent = document.querySelector('.dropdown-content');
+
+            dropdownBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdownContent.classList.toggle('show');
+            });
+
+            document.addEventListener('click', function() {
+                dropdownContent.classList.remove('show');
+            });
+
+            
+            const likePlaylistBtn = document.getElementById('like-playlist-btn');
+            likePlaylistBtn.addEventListener('click', function() {
+                this.classList.toggle('active');
+                if (this.classList.contains('active')) {
+                    this.innerHTML = '<i class="fas fa-heart"></i>';
+                    showToast('Playlist ditambahkan ke favorit');
+                } else {
+                    this.innerHTML = '<i class="far fa-heart"></i>';
+                    showToast('Playlist dihapus dari favorit');
+                }
+            });
+
+            
+            document.getElementById('share-playlist').addEventListener('click', function(e) {
+                e.preventDefault();
+                showToast('Fitur berbagi playlist');
+            });
+
+            document.getElementById('export-playlist').addEventListener('click', function(e) {
+                e.preventDefault();
+                showToast('Fitur ekspor playlist');
+            });
+
+            document.getElementById('rename-playlist').addEventListener('click', function(e) {
+                e.preventDefault();
+                const newName = prompt('Masukkan nama baru untuk playlist:', playlists[currentPlaylist].name);
+                if (newName && newName.trim() !== '') {
+                    renamePlaylist(newName.trim());
+                }
+            });
+
+          
+            const playlistDescription = document.getElementById('playlist-description');
+            playlistDescription.addEventListener('change', function() {
+                updatePlaylistDescription(this.value);
+            });
+
+           
+            const playlistVisibility = document.getElementById('playlist-visibility');
+            playlistVisibility.addEventListener('change', function() {
+                updatePlaylistVisibility(this.value);
+            });
+
+            
+            const playlistCollaborative = document.getElementById('playlist-collaborative');
+            playlistCollaborative.addEventListener('change', function() {
+                updatePlaylistCollaborative(this.checked);
+            });
+
+            
+            const playbackOrderRadios = document.querySelectorAll('input[name="playback-order"]');
+            playbackOrderRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.checked) {
+                        updatePlaybackOrder(this.value);
+                    }
+                });
+            });
+
+            // DATALIST EVENT LISTENER
+            const genreInput = document.getElementById('genre-suggestions');
+            genreInput.addEventListener('input', function() {
+                if (this.value) {
+                    
+                }
+            });
+
+           
+            audioPlayer.addEventListener('timeupdate', updateProgress);
+            audioPlayer.addEventListener('loadedmetadata', updateDuration);
+            audioPlayer.addEventListener('ended', handleTrackEnd);
+        }
+
+        function loadPlaylistTracks() {
+            const playlist = playlists[currentPlaylist];
+            const tracksBody = document.getElementById('playlist-tracks-body');
+            tracksBody.innerHTML = '';
+
+            if (playlist.tracks.length === 0) {
+                tracksBody.innerHTML = `
+                    <tr>
+                        <td colspan="5" style="text-align: center; padding: 2rem; color: var(--gray);">
+                            <i class="fas fa-music" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
+                            <h3>Playlist Kosong</h3>
+                            <p>Tambah lagu untuk memulai playlist Anda</p>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            playlist.tracks.forEach((trackId, index) => {
+                const track = availableTracks.find(t => t.id === trackId);
+                if (track) {
+                    const trackRow = createTrackRow(track, index);
+                    tracksBody.appendChild(trackRow);
+                }
+            });
+        }
+
+        function createTrackRow(track, index) {
+            const row = document.createElement('tr');
+            row.className = 'track-row';
+            row.setAttribute('data-track-id', track.id);
+            row.setAttribute('data-index', index);
+
+            const isLiked = likedTracks.includes(track.id);
+            const likeBtnClass = isLiked ? 'track-like-btn active' : 'track-like-btn';
+            const likeBtnIcon = isLiked ? 'fas fa-heart' : 'far fa-heart';
+
+            row.innerHTML = `
+                <td class="track-number">${index + 1}</td>
+                <td class="track-title">
+                    <div class="track-info">
+                        <img src="${track.cover}" alt="${track.title}">
+                        <div class="track-details">
+                            <div class="track-name">${track.title}</div>
+                            <div class="track-artist">${track.artist}</div>
+                        </div>
+                    </div>
+                </td>
+                <td class="track-album">${track.album}</td>
+                <td class="track-date">${formatDate(new Date())}</td>
+                <td class="track-actions">
+                    <div class="track-actions-container">
+                        <button class="track-remove-btn" title="Hapus dari playlist">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <button class="${likeBtnClass}" title="Tambahkan ke liked songs">
+                            <i class="${likeBtnIcon}"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+
+         
+            const removeBtn = row.querySelector('.track-remove-btn');
+            const likeBtn = row.querySelector('.track-like-btn');
+
+            removeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                removeTrackFromPlaylist(track.id);
+            });
+
+            likeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleLikeTrack(track.id, likeBtn);
+            });
+
+            row.addEventListener('click', function(e) {
+                if (!e.target.closest('.track-remove-btn') && !e.target.closest('.track-like-btn')) {
+                    playTrack(index);
+                }
+            });
+
+            return row;
+        }
+
+        function playTrack(index) {
+            const playlist = playlists[currentPlaylist];
+            const trackId = playlist.tracks[index];
+            const track = availableTracks.find(t => t.id === trackId);
+            
+            if (track) {
+                currentTrackIndex = index;
+                
+               
+                document.querySelectorAll('.track-row').forEach(row => row.classList.remove('active'));
+                const activeRow = document.querySelector(`.track-row[data-index="${index}"]`);
+                if (activeRow) {
+                    activeRow.classList.add('active');
+                }
+                
+               
+                document.getElementById('current-title').textContent = track.title;
+                document.getElementById('current-artist').textContent = track.artist;
+                document.getElementById('current-cover').src = track.cover;
+                
+               
+                const isLiked = likedTracks.includes(track.id);
+                const likeBtn = document.getElementById('like-btn');
+                if (isLiked) {
+                    likeBtn.classList.add('active');
+                    likeBtn.innerHTML = '<i class="fas fa-heart"></i>';
+                } else {
+                    likeBtn.classList.remove('active');
+                    likeBtn.innerHTML = '<i class="far fa-heart"></i>';
+                }
+                
+                
+                audioPlayer.src = track.audio;
+                audioPlayer.play().then(() => {
+                    isPlaying = true;
+                    
+                    
+                    document.getElementById('play-pause-btn').querySelector('i').classList.remove('fa-play');
+                    document.getElementById('play-pause-btn').querySelector('i').classList.add('fa-pause');
+                    
+                    showToast(`Memutar: ${track.title}`);
+                }).catch(error => {
+                    console.error('Error playing audio:', error);
+                    showToast('Error memutar lagu');
+                });
+            }
+        }
+
+        function playAllTracks() {
+            const playlist = playlists[currentPlaylist];
+            if (playlist.tracks.length > 0) {
+                playTrack(0);
+                showToast('Memutar semua lagu');
+            } else {
+                showToast('Tidak ada lagu di playlist');
+            }
+        }
+
+        function togglePlayPause() {
+            if (audioPlayer.src) {
+                if (isPlaying) {
+                    audioPlayer.pause();
+                    isPlaying = false;
+                    document.getElementById('play-pause-btn').querySelector('i').classList.remove('fa-pause');
+                    document.getElementById('play-pause-btn').querySelector('i').classList.add('fa-play');
+                    showToast('Jeda musik');
+                } else {
+                    audioPlayer.play();
+                    isPlaying = true;
+                    document.getElementById('play-pause-btn').querySelector('i').classList.remove('fa-play');
+                    document.getElementById('play-pause-btn').querySelector('i').classList.add('fa-pause');
+                    showToast('Memutar musik');
+                }
+            } else {
+                playAllTracks();
+            }
+        }
+
+        function playNextTrack() {
+            const playlist = playlists[currentPlaylist];
+            if (playlist.tracks.length > 0) {
+                if (isShuffled) {
+                    currentTrackIndex = Math.floor(Math.random() * playlist.tracks.length);
+                } else {
+                    currentTrackIndex = (currentTrackIndex + 1) % playlist.tracks.length;
+                }
+                playTrack(currentTrackIndex);
+            }
+        }
+
+        function playPreviousTrack() {
+            const playlist = playlists[currentPlaylist];
+            if (playlist.tracks.length > 0) {
+                if (isShuffled) {
+                    currentTrackIndex = Math.floor(Math.random() * playlist.tracks.length);
+                } else {
+                    currentTrackIndex = (currentTrackIndex - 1 + playlist.tracks.length) % playlist.tracks.length;
+                }
+                playTrack(currentTrackIndex);
+            }
+        }
+
+        function handleTrackEnd() {
+            if (isRepeating) {
+               
+                audioPlayer.currentTime = 0;
+                audioPlayer.play();
+            } else {
+                
+                playNextTrack();
+            }
+        }
+
+        function toggleShuffle() {
+            isShuffled = !isShuffled;
+            const shuffleBtn = document.getElementById('shuffle-btn');
+            if (isShuffled) {
+                shuffleBtn.classList.add('active');
+                showToast('Shuffle diaktifkan');
+            } else {
+                shuffleBtn.classList.remove('active');
+                showToast('Shuffle dinonaktifkan');
+            }
+        }
+
+        function toggleRepeat() {
+            isRepeating = !isRepeating;
+            const repeatBtn = document.getElementById('repeat-btn');
+            if (isRepeating) {
+                repeatBtn.classList.add('active');
+                showToast('Repeat diaktifkan');
+            } else {
+                repeatBtn.classList.remove('active');
+                showToast('Repeat dinonaktifkan');
+            }
+        }
+
+        function updateProgress() {
+            const progress = document.getElementById('progress-bar');
+            const currentTimeElement = document.getElementById('current-time');
+            
+            if (audioPlayer.duration && !isNaN(audioPlayer.duration)) {
+                const percentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                progress.value = percentage;
+                currentTimeElement.textContent = formatTime(audioPlayer.currentTime);
+            }
+        }
+
+        function updateDuration() {
+            const durationElement = document.getElementById('duration');
+            if (audioPlayer.duration && !isNaN(audioPlayer.duration)) {
+                durationElement.textContent = formatTime(audioPlayer.duration);
+            }
+        }
+
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return "0:00";
+            const min = Math.floor(seconds / 60);
+            const sec = Math.floor(seconds % 60);
+            return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        }
+
+        function openAddSongsModal() {
+            const modal = document.getElementById('add-songs-modal');
+            const availableSongsList = document.getElementById('available-songs-list');
+            
+           
+            availableSongsList.innerHTML = '';
+            
+            const currentPlaylistTracks = playlists[currentPlaylist].tracks;
+            const availableTracksToShow = availableTracks.filter(track => 
+                !currentPlaylistTracks.includes(track.id)
+            );
+            
+            if (availableTracksToShow.length === 0) {
+                availableSongsList.innerHTML = `
+                    <div style="text-align: center; padding: 2rem; color: var(--gray);">
+                        <i class="fas fa-music" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
+                        <h3>Tidak ada lagu tersedia</h3>
+                        <p>Semua lagu sudah ada di playlist ini</p>
+                    </div>
+                `;
+            } else {
+                availableTracksToShow.forEach(track => {
+                    const songItem = createAvailableSongItem(track);
+                    availableSongsList.appendChild(songItem);
+                });
+            }
+            
+            modal.style.display = 'flex';
+        }
+
+        function createAvailableSongItem(track) {
+            const item = document.createElement('div');
+            item.className = 'available-song-item';
+            item.setAttribute('data-track-id', track.id);
+            
+            item.innerHTML = `
+                <img src="${track.cover}" alt="${track.title}">
+                <div class="available-song-info">
+                    <div class="available-song-title">${track.title}</div>
+                    <div class="available-song-artist">${track.artist} • ${track.album}</div>
+                </div>
+                <button class="add-song-btn" data-track-id="${track.id}">
+                    <i class="fas fa-plus"></i> Tambah
+                </button>
+            `;
+            
+            const addBtn = item.querySelector('.add-song-btn');
+            addBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                addTrackToPlaylist(track.id);
+            });
+            
+           
+            item.addEventListener('click', function(e) {
+                if (!e.target.closest('.add-song-btn')) {
+                    addTrackToPlaylist(track.id);
+                }
+            });
+            
+            return item;
+        }
+
+        function addTrackToPlaylist(trackId) {
+            const playlist = playlists[currentPlaylist];
+            
+            if (!playlist.tracks.includes(trackId)) {
+                playlist.tracks.push(trackId);
+                savePlaylists();
+                loadPlaylistTracks();
+                updatePlaylistStats();
+                
+                const track = availableTracks.find(t => t.id === trackId);
+                showToast(`"${track.title}" ditambahkan ke playlist`);
+                
+                // Remove from available songs modal
+                const songItem = document.querySelector(`.available-song-item[data-track-id="${trackId}"]`);
+                if (songItem) {
+                    songItem.remove();
+                }
+                
+                // Close modal if no more songs available
+                const availableSongs = document.querySelectorAll('.available-song-item');
+                if (availableSongs.length === 0) {
+                    document.getElementById('add-songs-modal').style.display = 'none';
+                }
+            } else {
+                showToast('Lagu sudah ada di playlist');
+            }
+        }
+
+        function removeTrackFromPlaylist(trackId) {
+            const playlist = playlists[currentPlaylist];
+            playlist.tracks = playlist.tracks.filter(id => id !== trackId);
+            
+            savePlaylists();
+            loadPlaylistTracks();
+            updatePlaylistStats();
+            
+            const track = availableTracks.find(t => t.id === trackId);
+            showToast(`"${track.title}" dihapus dari playlist`);
+            
+            
+            if (currentTrackIndex >= playlist.tracks.length) {
+                if (playlist.tracks.length > 0) {
+                    currentTrackIndex = 0;
+                    playTrack(currentTrackIndex);
+                } else {
+                
+                    resetPlayer();
+                }
+            }
+        }
+
+        function resetPlayer() {
+            audioPlayer.pause();
+            audioPlayer.src = '';
+            isPlaying = false;
+            document.getElementById('play-pause-btn').querySelector('i').classList.remove('fa-pause');
+            document.getElementById('play-pause-btn').querySelector('i').classList.add('fa-play');
+            document.getElementById('current-title').textContent = 'Pilih Lagu';
+            document.getElementById('current-artist').textContent = 'HarmonyStream';
+            document.getElementById('current-cover').src = 'images/Apocalypse.jpg.jpeg';
+            document.getElementById('current-time').textContent = '0:00';
+            document.getElementById('duration').textContent = '0:00';
+            document.getElementById('progress-bar').value = 0;
+            document.querySelectorAll('.track-row').forEach(row => row.classList.remove('active'));
+        }
+
+        function filterTracks(searchTerm) {
+            const tracks = document.querySelectorAll('.track-row');
+            let hasVisibleTracks = false;
+            
+            tracks.forEach(track => {
+                const trackName = track.querySelector('.track-name').textContent.toLowerCase();
+                const trackArtist = track.querySelector('.track-artist').textContent.toLowerCase();
+                const trackAlbum = track.querySelector('.track-album').textContent.toLowerCase();
+                
+                if (trackName.includes(searchTerm.toLowerCase()) || 
+                    trackArtist.includes(searchTerm.toLowerCase()) || 
+                    trackAlbum.includes(searchTerm.toLowerCase())) {
+                    track.style.display = '';
+                    hasVisibleTracks = true;
+                } else {
+                    track.style.display = 'none';
+                }
+            });
+            
+            showNoResultsMessage(!hasVisibleTracks);
+        }
+
+        function filterAvailableSongs(searchTerm) {
+            const songs = document.querySelectorAll('.available-song-item');
+            let hasVisibleSongs = false;
+            
+            songs.forEach(song => {
+                const songTitle = song.querySelector('.available-song-title').textContent.toLowerCase();
+                const songArtist = song.querySelector('.available-song-artist').textContent.toLowerCase();
+                
+                if (songTitle.includes(searchTerm.toLowerCase()) || 
+                    songArtist.includes(searchTerm.toLowerCase())) {
+                    song.style.display = 'flex';
+                    hasVisibleSongs = true;
+                } else {
+                    song.style.display = 'none';
+                }
+            });
+            
+            
+            const availableSongsList = document.getElementById('available-songs-list');
+            let noResultsMessage = availableSongsList.querySelector('.no-results');
+            
+            if (!hasVisibleSongs && searchTerm.trim() !== '') {
+                if (!noResultsMessage) {
+                    noResultsMessage = document.createElement('div');
+                    noResultsMessage.className = 'no-results';
+                    noResultsMessage.innerHTML = `
+                        <i class="fas fa-search"></i>
+                        <h3>Tidak ada hasil ditemukan</h3>
+                        <p>Coba gunakan kata kunci yang berbeda</p>
+                    `;
+                    availableSongsList.appendChild(noResultsMessage);
+                }
+            } else if (noResultsMessage) {
+                noResultsMessage.remove();
+            }
+        }
+
+        function updatePlaylistStats() {
+            const playlist = playlists[currentPlaylist];
+            const totalSongs = playlist.tracks.length;
+            
+            
+            let totalDuration = 0;
+            playlist.tracks.forEach(trackId => {
+                const track = availableTracks.find(t => t.id === trackId);
+                if (track) {
+                    const [min, sec] = track.duration.split(':').map(Number);
+                    totalDuration += min * 60 + sec;
+                }
+            });
+            
+            const totalMinutes = Math.floor(totalDuration / 60);
+            
+            
+            document.getElementById('total-songs-output').textContent = totalSongs;
+            document.getElementById('total-duration-output').textContent = `${totalMinutes} min`;
+            
+            document.querySelector('.playlist-songs').textContent = `${totalSongs} ${totalSongs === 1 ? 'song' : 'songs'}`;
+            document.querySelector('.playlist-duration').textContent = `sekitar ${totalMinutes} min`;
+            
+            document.getElementById('table-summary-output').textContent = 
+                `Menampilkan ${totalSongs} lagu • Total durasi: ${totalMinutes} menit`;
+            
+            
+            const meterValue = Math.min(totalSongs / 50, 1);
+            document.getElementById('playlist-size-meter').value = meterValue;
+            document.getElementById('playlist-size-output').textContent = `${Math.round(meterValue * 100)}%`;
+        }
+
+        function updatePlaylistUI() {
+            
+            const playlist = playlists[currentPlaylist];
+            document.querySelector('.page-title').textContent = playlist.name;
+            document.getElementById('playlist-description').value = playlist.description;
+            document.querySelector('.playlist-cover').src = playlist.cover;
+            
+            
+            document.getElementById('playlist-visibility').value = playlist.public ? 'public' : 'private';
+            document.getElementById('playlist-collaborative').checked = playlist.collaborative;
+            
+            
+            loadPlaylistTracks();
+            updatePlaylistStats();
+        }
+
+        function updatePlaylistDescription(description) {
+            playlists[currentPlaylist].description = description;
+            savePlaylists();
+            showToast('Deskripsi playlist diperbarui');
+        }
+
+        function updatePlaylistVisibility(visibility) {
+            playlists[currentPlaylist].public = visibility === 'public';
+            savePlaylists();
+            showToast(`Playlist diubah menjadi ${visibility}`);
+        }
+
+        function updatePlaylistCollaborative(collaborative) {
+            playlists[currentPlaylist].collaborative = collaborative;
+            savePlaylists();
+            showToast(`Mode kolaboratif ${collaborative ? 'diaktifkan' : 'dinonaktifkan'}`);
+        }
+
+        function updatePlaybackOrder(order) {
+            
+            showToast(`Urutan pemutaran diubah ke: ${order}`);
+        }
+
+        function renamePlaylist(newName) {
+            const oldName = currentPlaylist;
+            playlists[newName] = playlists[oldName];
+            delete playlists[oldName];
+            currentPlaylist = newName;
+            savePlaylists();
+            updatePlaylistUI();
+            showToast(`Playlist diganti nama menjadi: ${newName}`);
+        }
+
+        function toggleLikeTrack(trackId, button) {
+            const index = likedTracks.indexOf(trackId);
+            
+            if (index === -1) {
+               
+                likedTracks.push(trackId);
+                button.classList.add('active');
+                button.innerHTML = '<i class="fas fa-heart"></i>';
+                showToast('Ditambahkan ke Liked Songs');
+            } else {
+                
+                likedTracks.splice(index, 1);
+                button.classList.remove('active');
+                button.innerHTML = '<i class="far fa-heart"></i>';
+                showToast('Dihapus dari Liked Songs');
+            }
+            
+           
+            const currentTrackId = playlists[currentPlaylist].tracks[currentTrackIndex];
+            if (currentTrackId === trackId) {
+                const playerLikeBtn = document.getElementById('like-btn');
+                if (index === -1) {
+                    playerLikeBtn.classList.add('active');
+                    playerLikeBtn.innerHTML = '<i class="fas fa-heart"></i>';
+                } else {
+                    playerLikeBtn.classList.remove('active');
+                    playerLikeBtn.innerHTML = '<i class="far fa-heart"></i>';
+                }
+            }
+            
+            localStorage.setItem('harmonystream-liked-tracks', JSON.stringify(likedTracks));
+        }
+
+        function toggleLikeCurrentTrack() {
+            const currentTrackId = playlists[currentPlaylist].tracks[currentTrackIndex];
+            if (currentTrackId) {
+                const likeBtn = document.getElementById('like-btn');
+                const trackLikeBtn = document.querySelector(`.track-row[data-track-id="${currentTrackId}"] .track-like-btn`);
+                
+                toggleLikeTrack(currentTrackId, likeBtn);
+                
+                
+                if (trackLikeBtn) {
+                    if (likedTracks.includes(currentTrackId)) {
+                        trackLikeBtn.classList.add('active');
+                        trackLikeBtn.innerHTML = '<i class="fas fa-heart"></i>';
+                    } else {
+                        trackLikeBtn.classList.remove('active');
+                        trackLikeBtn.innerHTML = '<i class="far fa-heart"></i>';
+                    }
+                }
+            }
+        }
+
+        function updateLikeButtons() {
+            
+            document.querySelectorAll('.track-like-btn').forEach(button => {
+                const trackId = parseInt(button.closest('.track-row').getAttribute('data-track-id'));
+                if (likedTracks.includes(trackId)) {
+                    button.classList.add('active');
+                    button.innerHTML = '<i class="fas fa-heart"></i>';
+                } else {
+                    button.classList.remove('active');
+                    button.innerHTML = '<i class="far fa-heart"></i>';
+                }
+            });
+        }
+
+        function savePlaylists() {
+            localStorage.setItem('harmonystream-playlists', JSON.stringify(playlists));
+        }
+
+        function formatDate(date) {
+            const now = new Date();
+            const diffTime = Math.abs(now - date);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            if (diffDays === 1) return 'Yesterday';
+            if (diffDays < 7) return `${diffDays} days ago`;
+            if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
+            return date.toLocaleDateString();
+        }
+
+        function showNoResultsMessage(show) {
+            const existingMessage = document.querySelector('.table-container .no-results');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            if (show) {
+                const message = document.createElement('div');
+                message.className = 'no-results';
+                message.innerHTML = `
+                    <i class="fas fa-search"></i>
+                    <h3>Tidak ada hasil ditemukan</h3>
+                    <p>Coba gunakan kata kunci yang berbeda</p>
+                `;
+                
+                const container = document.querySelector('.table-container');
+                if (container) {
+                    container.appendChild(message);
+                }
+            }
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HarmonyStream - Beranda</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-music"></i>
+            Harmony<span>Stream</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="beranda.html" class="active">Beranda</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="playlist.html">Playlist</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Cari lagu, artis..." id="search-input">
+            </div>
+            <div class="user-profile" id="user-profile-btn">
+                <img src="profile.jpg" alt="User">
+                <span>Jei</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <div class="sidebar-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Beranda</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-book"></i>
+                    <span>Your Library</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Liked Songs</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <h1 class="page-title">Selamat Datang di <span>HarmonyStream</span></h1>
+
+            <section class="featured-playlists">
+                <h2 class="section-title">Featured Playlists</h2>
+                <div class="card-grid" id="featured-playlists">
+                    <div class="card" data-index="0">
+                        <img src="images/Apocalypse.jpg.jpeg" alt="Apocalypse" class="card-img">
+                        <div class="card-title">Apocalypse</div>
+                        <div class="card-subtitle">Cigarettes After Sex</div>
+                        <button class="card-like-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card" data-index="1">
+                        <img src="images/drunk text.jpg.jpeg" alt="drunk text" class="card-img">
+                        <div class="card-title">drunk text</div>
+                        <div class="card-subtitle">Henry Moodie</div>
+                        <button class="card-like-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card" data-index="2">
+                        <img src="images/Helena.jpg.jpeg" alt="Helena" class="card-img">
+                        <div class="card-title">Helena</div>
+                        <div class="card-subtitle">My Chemical Romance</div>
+                        <button class="card-like-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card" data-index="3">
+                        <img src="images/Komang.jpg.jpeg" alt="KOMANG" class="card-img">
+                        <div class="card-title">KOMANG</div>
+                        <div class="card-subtitle">Raim Laode</div>
+                        <button class="card-like-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="recently-played">
+                <h2 class="section-title">Recently Played</h2>
+                <div class="card-grid" id="recently-played">
+                    <div class="card" data-index="4">
+                        <img src="images/Niki (Backburner).jpg.jpeg" alt="Backburner" class="card-img">
+                        <div class="card-title">Backburner</div>
+                        <div class="card-subtitle">Niki</div>
+                        <button class="card-like-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card" data-index="5">
+                        <img src="images/sea of hope.jpg.jpeg" alt="sea of hope" class="card-img">
+                        <div class="card-title">sea of hope</div>
+                        <div class="card-subtitle">Mitsune</div>
+                        <button class="card-like-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card" data-index="6">
+                        <img src="images/Teenage Dream.jpg.jpeg" alt="Teenage Dream" class="card-img">
+                        <div class="card-title">Teenage Dream</div>
+                        <div class="card-subtitle">Stephen Dawes</div>
+                        <button class="card-like-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card" data-index="7">
+                        <img src="images/The Man Who Can't Be Moved.jpg.jpeg" alt="The Man Who Can't Be Moved" class="card-img">
+                        <div class="card-title">The Man Who Can't Be Moved</div>
+                        <div class="card-subtitle">The Script</div>
+                        <button class="card-like-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="new-releases">
+                <h2 class="section-title">New Releases</h2>
+                <div class="card-grid" id="new-releases">
+                    <div class="card" data-index="8">
+                        <img src="images/Vierra (Bersamamu).jpg.jpeg" alt="Bersamamu" class="card-img">
+                        <div class="card-title">Bersamamu</div>
+                        <div class="card-subtitle">Vierra</div>
+                        <button class="card-like-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card" data-index="9">
+                        <img src="images/You'll Be in My Heart.jpg.jpeg" alt="You'll Be in My Heart" class="card-img">
+                        <div class="card-title">You'll Be in My Heart</div>
+                        <div class="card-subtitle">Phil Collins</div>
+                        <button class="card-like-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="card" data-index="10">
+                        <img src="images/Yung kai (blue).jpg.jpeg" alt="blue" class="card-img">
+                        <div class="card-title">blue</div>
+                        <div class="card-subtitle">Yung kai</div>
+                        <button class="card-like-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profile-modal" class="profile-modal">
+        <div class="profile-modal-content">
+            <div class="profile-sidebar">
+                <button class="profile-close" id="profile-close">
+                    <i class="fas fa-times"></i>
+                </button>
+                <img src="profile.jpg" alt="User Profile" class="profile-image-large">
+                <h1 class="profile-name">Jei</h1>
+                <p class="profile-bio">Music Enthusiast & Web Developer</p>
+            </div>
+            
+            <div class="profile-main">
+                <div class="profile-section">
+                    <h2 class="profile-section-title">
+                        <i class="fas fa-heart"></i>
+                        Hobi
+                    </h2>
+                    <div class="profile-hobbies">
+                        <span class="hobby-tag">Gaming</span>
+                        <span class="hobby-tag">Music</span>
+                        <span class="hobby-tag">Sleep</span>
+                        <span class="hobby-tag">Coding</span>
+                        <span class="hobby-tag">Movies</span>
+                    </div>
+                </div>
+                
+                <div class="profile-section">
+                    <h2 class="profile-section-title">
+                        <i class="fas fa-music"></i>
+                        Genre Favorit
+                    </h2>
+                    <div class="profile-hobbies">
+                        <span class="hobby-tag">Pop</span>
+                        <span class="hobby-tag">Rock</span>
+                        <span class="hobby-tag">Indie</span>
+                        <span class="hobby-tag">R&B</span>
+                        <span class="hobby-tag">Jazz</span>
+                        <span class="hobby-tag">Electronic</span>
+                    </div>
+                </div>
+                
+                <div class="profile-section">
+                    <h2 class="profile-section-title">
+                        <i class="fas fa-info-circle"></i>
+                        Informasi Pengguna
+                    </h2>
+                    <div class="profile-hobbies">
+                        <span class="hobby-tag">Anggota sejak: 2023</span>
+                        <span class="hobby-tag">Tingkat: Premium</span>
+                        <span class="hobby-tag">Lokasi: Indonesia</span>
+                        <span class="hobby-tag">Bahasa: Indonesia & English</span>
+                    </div>
+                </div>
+                
+                <div class="profile-section">
+                    <h2 class="profile-section-title">
+                        <i class="fas fa-star"></i>
+                        Artist Favorit
+                    </h2>
+                    <div class="profile-hobbies">
+                        <span class="hobby-tag">Cigarettes After Sex</span>
+                        <span class="hobby-tag">Niki</span>
+                        <span class="hobby-tag">My Chemical Romance</span>
+                        <span class="hobby-tag">The Script</span>
+                        <span class="hobby-tag">Phil Collins</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="player-controls">
+        <div class="now-playing">
+            <img src="images/Apocalypse.jpg.jpeg" alt="Now Playing" id="current-cover">
+            <div class="track-info">
+                <div class="track-title" id="current-title">Pilih Lagu</div>
+                <div class="track-artist" id="current-artist">HarmonyStream</div>
+            </div>
+            <button class="like-btn" id="like-btn"><i class="far fa-heart"></i></button>
+        </div>
+        
+        <div class="playback-controls">
+            <button id="shuffle-btn"><i class="fas fa-random"></i></button>
+            <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
+            <button class="play-pause" id="play-pause-btn"><i class="fas fa-play"></i></button>
+            <button id="next-btn"><i class="fas fa-step-forward"></i></button>
+            <button id="repeat-btn"><i class="fas fa-redo"></i></button>
+        </div>
+        
+        <div class="playback-progress">
+            <span id="current-time">0:00</span>
+            <progress value="0" max="100" id="progress-bar"></progress>
+            <span id="duration">0:00</span>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="main.js"></script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const profileBtn = document.getElementById('user-profile-btn');
+        const profileModal = document.getElementById('profile-modal');
+        const profileClose = document.getElementById('profile-close');
+
+        profileBtn.addEventListener('click', function() {
+            profileModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+
+        profileClose.addEventListener('click', function() {
+            profileModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        profileModal.addEventListener('click', function(event) {
+            if (event.target === profileModal) {
+                profileModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && profileModal.style.display === 'flex') {
+                profileModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        const sidebarItems = document.querySelectorAll('.sidebar-item');
+        sidebarItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const text = this.querySelector('span').textContent.trim();
+                
+                sidebarItems.forEach(i => i.classList.remove('active'));
+                
+                this.classList.add('active');
+                
+                switch(text) {
+                    case 'Beranda':
+                        window.location.href = 'beranda.html';
+                        break;
+                    case 'Search':
+                        document.querySelector('.search-bar input').focus();
+                        break;
+                    case 'Your Library':
+                        window.location.href = 'library.html';
+                        break;
+                    case 'Liked Songs':
+                        window.location.href = 'liked_songs.html';
+                        break;
+                }
+            });
+        });
+        
+        initializeCardLikeButtons();
+        initializeSearch();
+    });
+
+    function initializeCardLikeButtons() {
+        const likedSongs = JSON.parse(localStorage.getItem('harmonystream-likedSongs')) || [];
+        
+        document.querySelectorAll('.card').forEach(card => {
+            const trackIndex = parseInt(card.getAttribute('data-index'));
+            if (trackIndex >= 0 && window.musicPlayer) {
+                const track = window.musicPlayer.tracks[trackIndex];
+                const isLiked = likedSongs.some(likedTrack => likedTrack.src === track.src);
+                const likeBtn = card.querySelector('.card-like-btn');
+                
+                if (isLiked) {
+                    likeBtn.querySelector('i').classList.remove('far');
+                    likeBtn.querySelector('i').classList.add('fas');
+                    likeBtn.classList.add('active');
+                }
+            }
+
+            const likeBtn = card.querySelector('.card-like-btn');
+            likeBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const card = this.closest('.card');
+                const trackIndex = parseInt(card.getAttribute('data-index'));
+                
+                if (trackIndex >= 0 && window.musicPlayer) {
+                    const track = window.musicPlayer.tracks[trackIndex];
+                    let likedSongs = JSON.parse(localStorage.getItem('harmonystream-likedSongs')) || [];
+                    const isLiked = likedSongs.some(likedTrack => likedTrack.src === track.src);
+                    
+                    if (isLiked) {
+                        likedSongs = likedSongs.filter(likedTrack => likedTrack.src !== track.src);
+                        this.querySelector('i').classList.remove('fas');
+                        this.querySelector('i').classList.add('far');
+                        this.classList.remove('active');
+                        showToast('Removed from Liked Songs');
+                    } else {
+                        const trackWithDate = {
+                            ...track,
+                            likedDate: new Date().toISOString()
+                        };
+                        likedSongs.push(trackWithDate);
+                        this.querySelector('i').classList.remove('far');
+                        this.querySelector('i').classList.add('fas');
+                        this.classList.add('active');
+                        showToast('Added to Liked Songs');
+                    }
+                    
+                    localStorage.setItem('harmonystream-likedSongs', JSON.stringify(likedSongs));
+                    
+                    if (window.musicPlayer.currentTrack && window.musicPlayer.currentTrack.src === track.src) {
+                        window.musicPlayer.updateLikeButton(track);
+                    }
+                }
+            });
+        });
+    }
+
+    function initializeSearch() {
+        const searchInput = document.getElementById('search-input');
+        if (!searchInput) return;
+        
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.card');
+            let hasVisibleCards = false;
+            
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const artist = card.querySelector('.card-subtitle').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || artist.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    hasVisibleCards = true;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            showNoResultsMessage(hasVisibleCards, 'card');
+        });
+    }
+
+    function showNoResultsMessage(hasResults, type) {
+        const existingMessage = document.querySelector('.no-results');
+        if (existingMessage) {
+            existingMessage.remove();
+        }
+        
+        if (!hasResults) {
+            const message = document.createElement('div');
+            message.className = 'no-results';
+            message.innerHTML = `
+                <i class="fas fa-search"></i>
+                <h3>Tidak ada hasil ditemukan</h3>
+                <p>Coba gunakan kata kunci yang berbeda</p>
+            `;
+            
+            const container = document.querySelector('.main-content');
+            if (container) {
+                container.appendChild(message);
+            }
+        }
+    }
+
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+
+    class MusicPlayer {
+        constructor() {
+            this.audio = new Audio();
+            this.isPlaying = false;
+            this.currentTrackIndex = 0;
+            this.tracks = [];
+            this.isShuffled = false;
+            this.isRepeating = false;
+            this.shuffledOrder = [];
+            this.volume = 0.5;
+            
+            this.tracks = [
+                { src: "audio/Apocalypse.mp3", title: "Apocalypse", artist: "Cigarettes After Sex", cover: "images/Apocalypse.jpg.jpeg", duration: "4:52" },
+                { src: "audio/drunk text.mp3", title: "drunk text", artist: "Henry Moodie", cover: "images/drunk text.jpg.jpeg", duration: "3:34" },
+                { src: "audio/Helena.mp3", title: "Helena", artist: "My Chemical Romance", cover: "images/Helena.jpg.jpeg", duration: "3:27" },
+                { src: "audio/KOMANG.mp3", title: "KOMANG", artist: "Raim Laode", cover: "images/Komang.jpg.jpeg", duration: "4:08" },
+                { src: "audio/Niki (Backburner).mp3", title: "Backburner", artist: "Niki", cover: "images/Niki (Backburner).jpg.jpeg", duration: "3:45" },
+                { src: "audio/sea of hope.mp3", title: "sea of hope", artist: "Mitsune", cover: "images/sea of hope.jpg.jpeg", duration: "3:22" },
+                { src: "audio/Teenage Dream.mp3", title: "Teenage Dream", artist: "Stephen Dawes", cover: "images/Teenage Dream.jpg.jpeg", duration: "3:58" },
+                { src: "audio/The Man Who Can't Be Moved.mp3", title: "The Man Who Can't Be Moved", artist: "The Script", cover: "images/The Man Who Can't Be Moved.jpg.jpeg", duration: "4:02" },
+                { src: "audio/Vierra (Bersamamu).mp3", title: "Bersamamu", artist: "Vierra", cover: "images/Vierra (Bersamamu).jpg.jpeg", duration: "4:15" },
+                { src: "audio/You'll Be in My Heart.mp3", title: "You'll Be in My Heart", artist: "Phil Collins", cover: "images/You'll Be in My Heart.jpg.jpeg", duration: "4:19" },
+                { src: "audio/Yung kai (blue).mp3", title: "blue", artist: "Yung kai", cover: "images/Yung kai (blue).jpg.jpeg", duration: "3:26" }
+            ];
+
+            this.initializePlayer();
+            this.setupEventListeners();
+        }
+
+        initializePlayer() {
+            if (this.tracks.length > 0) {
+                this.loadTrack(0);
+            }
+            this.audio.volume = this.volume;
+        }
+
+        loadTrack(index) {
+            if (this.tracks[index]) {
+                const trackIndex = this.isShuffled ? this.shuffledOrder[index] : index;
+                const track = this.tracks[trackIndex];
+                
+                this.audio.src = track.src;
+                this.currentTrackIndex = index;
+                this.currentTrack = track;
+                this.updateNowPlaying(track.title, track.artist, track.cover);
+                this.updateLikeButton(track);
+                
+                document.querySelectorAll('.track').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+                
+                const trackElements = document.querySelectorAll('.track');
+                if (trackElements[trackIndex]) {
+                    trackElements[trackIndex].classList.add('active');
+                }
+                
+                const cardElements = document.querySelectorAll('.card');
+                if (cardElements[trackIndex]) {
+                    cardElements[trackIndex].classList.add('active');
+                }
+            }
+        }
+
+        updateLikeButton(track) {
+            const likeBtn = document.getElementById('like-btn');
+            const likedSongs = JSON.parse(localStorage.getItem('harmonystream-likedSongs')) || [];
+            const isLiked = likedSongs.some(likedTrack => likedTrack.src === track.src);
+            
+            if (isLiked) {
+                likeBtn.querySelector('i').classList.remove('far');
+                likeBtn.querySelector('i').classList.add('fas');
+                likeBtn.classList.add('active');
+            } else {
+                likeBtn.querySelector('i').classList.remove('fas');
+                likeBtn.querySelector('i').classList.add('far');
+                likeBtn.classList.remove('active');
+            }
+        }
+
+        toggleLike() {
+            const currentTrack = this.tracks[this.currentTrackIndex];
+            let likedSongs = JSON.parse(localStorage.getItem('harmonystream-likedSongs')) || [];
+            const isLiked = likedSongs.some(track => track.src === currentTrack.src);
+            
+            if (isLiked) {
+                likedSongs = likedSongs.filter(track => track.src !== currentTrack.src);
+                document.getElementById('like-btn').querySelector('i').classList.remove('fas');
+                document.getElementById('like-btn').querySelector('i').classList.add('far');
+                document.getElementById('like-btn').classList.remove('active');
+                this.showToast('Removed from Liked Songs');
+            } else {
+                const trackWithDate = {
+                    ...currentTrack,
+                    likedDate: new Date().toISOString()
+                };
+                likedSongs.push(trackWithDate);
+                document.getElementById('like-btn').querySelector('i').classList.remove('far');
+                document.getElementById('like-btn').querySelector('i').classList.add('fas');
+                document.getElementById('like-btn').classList.add('active');
+                this.showToast('Added to Liked Songs');
+            }
+            
+            localStorage.setItem('harmonystream-likedSongs', JSON.stringify(likedSongs));
+            
+            this.updateCardLikeButtons();
+        }
+
+        showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        updateCardLikeButtons() {
+            const likedSongs = JSON.parse(localStorage.getItem('harmonystream-likedSongs')) || [];
+            
+            document.querySelectorAll('.card').forEach(card => {
+                const trackIndex = parseInt(card.getAttribute('data-index'));
+                if (trackIndex >= 0) {
+                    const track = this.tracks[trackIndex];
+                    const isLiked = likedSongs.some(likedTrack => likedTrack.src === track.src);
+                    const likeBtn = card.querySelector('.card-like-btn');
+                    
+                    if (isLiked) {
+                        likeBtn.querySelector('i').classList.remove('far');
+                        likeBtn.querySelector('i').classList.add('fas');
+                        likeBtn.classList.add('active');
+                    } else {
+                        likeBtn.querySelector('i').classList.remove('fas');
+                        likeBtn.querySelector('i').classList.add('far');
+                        likeBtn.classList.remove('active');
+                    }
+                }
+            });
+        }
+
+        playPause() {
+            if (this.isPlaying) {
+                this.audio.pause();
+                this.isPlaying = false;
+                document.getElementById('play-pause-btn').querySelector('i').classList.remove('fa-pause');
+                document.getElementById('play-pause-btn').querySelector('i').classList.add('fa-play');
+            } else {
+                this.audio.play().then(() => {
+                    this.isPlaying = true;
+                    document.getElementById('play-pause-btn').querySelector('i').classList.remove('fa-play');
+                    document.getElementById('play-pause-btn').querySelector('i').classList.add('fa-pause');
+                }).catch(error => {
+                    console.error('Error playing audio:', error);
+                    this.showToast('Error playing audio');
+                });
+            }
+        }
+
+        next() {
+            let nextIndex;
+            if (this.isShuffled && this.shuffledOrder.length > 0) {
+                nextIndex = (this.currentTrackIndex + 1) % this.shuffledOrder.length;
+            } else {
+                nextIndex = (this.currentTrackIndex + 1) % this.tracks.length;
+            }
+            this.loadTrack(nextIndex);
+            if (this.isPlaying) {
+                this.audio.play().catch(error => {
+                    console.error('Error playing next track:', error);
+                });
+            }
+        }
+
+        previous() {
+            let prevIndex;
+            if (this.isShuffled && this.shuffledOrder.length > 0) {
+                prevIndex = (this.currentTrackIndex - 1 + this.shuffledOrder.length) % this.shuffledOrder.length;
+            } else {
+                prevIndex = (this.currentTrackIndex - 1 + this.tracks.length) % this.tracks.length;
+            }
+            this.loadTrack(prevIndex);
+            if (this.isPlaying) {
+                this.audio.play().catch(error => {
+                    console.error('Error playing previous track:', error);
+                });
+            }
+        }
+
+        toggleShuffle() {
+            this.isShuffled = !this.isShuffled;
+            const shuffleBtn = document.getElementById('shuffle-btn');
+            
+            if (this.isShuffled) {
+                shuffleBtn.classList.add('active');
+                this.createShuffledOrder();
+                this.showToast('Shuffle activated');
+            } else {
+                shuffleBtn.classList.remove('active');
+                this.showToast('Shuffle deactivated');
+            }
+        }
+
+        createShuffledOrder() {
+            this.shuffledOrder = [...Array(this.tracks.length).keys()];
+            for (let i = this.shuffledOrder.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [this.shuffledOrder[i], this.shuffledOrder[j]] = [this.shuffledOrder[j], this.shuffledOrder[i]];
+            }
+        }
+
+        toggleRepeat() {
+            this.isRepeating = !this.isRepeating;
+            const repeatBtn = document.getElementById('repeat-btn');
+            
+            if (this.isRepeating) {
+                repeatBtn.classList.add('active');
+                this.audio.loop = true;
+                this.showToast('Repeat activated');
+            } else {
+                repeatBtn.classList.remove('active');
+                this.audio.loop = false;
+                this.showToast('Repeat deactivated');
+            }
+        }
+
+        updateNowPlaying(title, artist, cover) {
+            document.getElementById('current-title').textContent = title;
+            document.getElementById('current-artist').textContent = artist;
+            document.getElementById('current-cover').src = cover;
+        }
+
+        setupEventListeners() {
+            document.getElementById('play-pause-btn').addEventListener('click', () => this.playPause());
+            document.getElementById('next-btn').addEventListener('click', () => this.next());
+            document.getElementById('prev-btn').addEventListener('click', () => this.previous());
+            document.getElementById('shuffle-btn').addEventListener('click', () => this.toggleShuffle());
+            document.getElementById('repeat-btn').addEventListener('click', () => this.toggleRepeat());
+            document.getElementById('like-btn').addEventListener('click', () => this.toggleLike());
+
+            this.audio.addEventListener('timeupdate', () => this.updateProgress());
+            this.audio.addEventListener('loadedmetadata', () => this.updateDuration());
+            this.audio.addEventListener('ended', () => {
+                if (!this.isRepeating) {
+                    this.next();
+                }
+            });
+
+            this.audio.addEventListener('error', (e) => {
+                console.error('Audio error:', e);
+                this.showToast('Error loading audio');
+            });
+
+            document.getElementById('progress-bar').addEventListener('click', (e) => {
+                const progressBar = e.currentTarget;
+                const clickPosition = e.offsetX;
+                const totalWidth = progressBar.offsetWidth;
+                const percentage = clickPosition / totalWidth;
+                
+                if (this.audio.duration) {
+                    this.audio.currentTime = percentage * this.audio.duration;
+                }
+            });
+
+            document.querySelectorAll('.card[data-index]').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    if (!e.target.closest('.card-like-btn')) {
+                        const index = parseInt(card.getAttribute('data-index'));
+                        this.currentTrackIndex = index;
+                        this.loadTrack(index);
+                        this.audio.play().then(() => {
+                            this.isPlaying = true;
+                            document.getElementById('play-pause-btn').querySelector('i').classList.remove('fa-play');
+                            document.getElementById('play-pause-btn').querySelector('i').classList.add('fa-pause');
+                        }).catch(error => {
+                            console.error('Error playing track:', error);
+                            this.showToast('Error playing track');
+                        });
+                    }
+                });
+            });
+        }
+
+        updateProgress() {
+            const progress = document.getElementById('progress-bar');
+            const currentTimeElement = document.getElementById('current-time');
+            
+            if (this.audio.duration && !isNaN(this.audio.duration)) {
+                const percentage = (this.audio.currentTime / this.audio.duration) * 100;
+                progress.value = percentage;
+                currentTimeElement.textContent = this.formatTime(this.audio.currentTime);
+            }
+        }
+
+        updateDuration() {
+            const durationElement = document.getElementById('duration');
+            if (this.audio.duration && !isNaN(this.audio.duration)) {
+                durationElement.textContent = this.formatTime(this.audio.duration);
+            }
+        }
+
+        formatTime(seconds) {
+            if (isNaN(seconds)) return "0:00";
+            const min = Math.floor(seconds / 60);
+            const sec = Math.floor(seconds % 60);
+            return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        window.musicPlayer = new MusicPlayer();
+    });
+</script>
+</body>
+</html>
